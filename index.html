@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>点击收听我自己唱的歌</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 80px;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        img {
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <p>点击收听我自己唱的歌</p>
+
+    <img id="btnImg" src="close.jpg" alt="播放按钮">
+
+    <audio id="audio" src="yinpin.mp3"></audio>
+
+    <script>
+        const img = document.getElementById("btnImg");
+        const audio = document.getElementById("audio");
+        let playing = false;
+
+        // 设置音量最大
+        audio.volume = 1.0;
+
+        img.onclick = function () {
+            if (!playing) {
+                img.src = "yinpin.gif";
+                audio.play();
+                playing = true;
+            } else {
+                img.src = "close.jpg";
+                audio.pause();
+                playing = false;
+            }
+        };
+    </script>
+
+</body>
+</html>
